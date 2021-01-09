@@ -1,0 +1,32 @@
+import React from "react";
+
+export const Card = (props) => {
+  const dragStart = (e) => {
+    const target = e.target;
+
+    e.dataTransfer.setData("card_id", target.id);
+    // 为什么要设置为异步的?
+    // 防止一开始拖动, 子元素就消失
+    // 要等到 dragstart 事件触发完成后再消失
+    setTimeout(() => {
+      target.style.display = "none";
+    }, 0);
+  };
+
+  const dragOver = e => {
+    e.stopPropagation();
+
+  }
+
+  return (
+    <div
+      id={props.id}
+      className={props.className}
+      draggable={props.draggable}
+      onDragStart={dragStart}
+      onDragOver={dragOver}
+    >
+      {props.children}
+    </div>
+  );
+};
