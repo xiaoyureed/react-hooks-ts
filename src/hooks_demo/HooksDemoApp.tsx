@@ -1,7 +1,5 @@
 import React from 'react';
-import UseMemoDemo from './UseMemoDemo';
-import UseRefDemo from './UseRefDemo';
-import PrevDemo from './UseRefDemo/PrevDemo';
+import CountLimit from './UseEffectDemo/CountLimitDemo';
 
 const HooksDemoApp: React.FC = () => {
   return (
@@ -13,7 +11,10 @@ const HooksDemoApp: React.FC = () => {
       {/* <UseReducerDemo /> */}
       {/* <UseRefDemo /> */}
       {/* <PrevDemo /> */}
-      <UseMemoDemo />
+      {/* <UseMemoDemo /> */}
+      {/* <MemoDemo /> */}
+      {/* <AsyncReqDemo /> */}
+      <CountLimit />
     </>
   );
 };

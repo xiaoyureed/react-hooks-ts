@@ -1,5 +1,6 @@
 import React from "react";
-import HooksDemoApp from "./hooks_demo/HooksDemoApp";
+// import TodoApp from "./demo/TodoApp";
+import TodoApp from "./hooks_demo/TodoApp";
 
 function App() {
   return (
@@ -26,7 +27,11 @@ function App() {
 
       {/* <RouteApp /> */}
 
-      <HooksDemoApp />
+      {/* <HooksDemoApp /> */}
+
+      {/* <LazyDemo /> */}
+
+      <TodoApp />
 
     </div>
   );

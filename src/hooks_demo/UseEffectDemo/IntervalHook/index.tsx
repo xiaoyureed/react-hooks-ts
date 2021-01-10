@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useCountAdd } from "../../UseStateDemo/CountAddHook";
 
-const useInterval = (callback: () => void, interval: number) => {
+export const useInterval = (callback: () => void, interval: number) => {
   useEffect(() => {
     let I = setInterval(callback, interval)
     return () => {

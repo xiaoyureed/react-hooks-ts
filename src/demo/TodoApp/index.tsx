@@ -10,6 +10,7 @@ const initTodos: Array<Todo> = [
 const TodoApp: React.FC = () => {
   const [todos, setTodos] = useState(initTodos);
 
+  // toggle complete or not
   const toggle: Toggle = (tobeToggle) => {
     const newTodos: Array<Todo> = todos.map((todo) => {
       if (todo === tobeToggle) {

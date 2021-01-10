@@ -28,7 +28,8 @@ const reducer = (state: IState, { type, payload }: IAction) => {
       return { ...state, count: state.count - 1 };
     }
     default:
-      return state;
+      // return state;
+      throw new Error("unknown type");
   }
 };
 
