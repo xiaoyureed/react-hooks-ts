@@ -1,10 +1,9 @@
 import React from "react";
-// import TodoApp from "./demo/TodoApp";
-import TodoApp from "./hooks_demo/TodoApp";
+import Demos from "./demos/Demos";
 
 function App() {
   return (
-    <div className="App">
+    <>
       {/* <User01 name="xy" age={11}>
         <br />
       </User01> */}
@@ -31,9 +30,11 @@ function App() {
 
       {/* <LazyDemo /> */}
 
-      <TodoApp />
+      {/* <TodoApp /> */}
 
-    </div>
+      <Demos />
+
+    </>
   );
 }
 

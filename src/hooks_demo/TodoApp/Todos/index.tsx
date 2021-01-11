@@ -1,5 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import { Remove, Todo, Toggle } from "../types";
+import styles from "./index.module.css";
 
 type TodosProps = {
   todos: Array<Todo>;
@@ -9,19 +10,27 @@ type TodosProps = {
 
 const Todos: React.FC<TodosProps> = ({ todos, remove, toggle }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {todos.map((todo) => {
         return (
-          <li key={todo.id}>
+          <li key={todo.id} className={styles.item}>
             <input
+              className={styles.checkbox}
               type="checkbox"
               onChange={() => {
                 toggle(todo.id);
               }}
               checked={todo.complete}
             />
-            <label>{todo.text}</label>
+            <label
+              className={`${styles.label} ${
+                todo.complete ? styles.complete : ""
+              }`}
+            >
+              {todo.text}
+            </label>
             <button
+              className={styles.btn}
               onClick={() => {
                 remove(todo.id);
               }}
@@ -35,4 +44,4 @@ const Todos: React.FC<TodosProps> = ({ todos, remove, toggle }) => {
   );
 };
 
-export default Todos;
+export default memo(Todos);

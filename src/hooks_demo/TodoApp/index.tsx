@@ -1,11 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import Control from "./Control";
 import Todos from "./Todos";
 import { Todo } from "./types";
+import styles from './index.module.css';
 
 const TodoApp: React.FC = () => {
   const [todos, setTodos] = useState<Array<Todo>>([]);
 
+  // 在 functional component 内的函数定义需要声明在 usecallback 内部
   const add = useCallback((newTodo: Todo) => {
     setTodos((todos) => [...todos, newTodo]);
   }, []);
@@ -23,11 +25,13 @@ const TodoApp: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className={styles.todoList}>
       <Control add={add} />
       <Todos todos={todos} remove={remove} toggle={toggle} />
-    </>
+    </div>
   );
 };
 
-export default TodoApp;
+// 优化
+export default memo(TodoApp);
+// export default TodoApp;

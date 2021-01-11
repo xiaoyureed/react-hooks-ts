@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import styles from "./index.module.css";
 import { Add } from "../types";
 
@@ -37,4 +37,4 @@ const Control: React.FC<ControlProps> = ({ add }) => {
   );
 };
 
-export default Control;
+export default memo(Control);
