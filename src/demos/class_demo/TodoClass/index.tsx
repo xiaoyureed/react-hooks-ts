@@ -7,7 +7,8 @@ interface IState {
 }
 
 class TodoClass extends React.PureComponent<any, IState> {
-  // 默认值
+
+  // 默认值 (加了默认值, 类似使得 属性可选, 相当于 加了问号 "?")
   // static defaultProps = {
   //   // ...
   // }

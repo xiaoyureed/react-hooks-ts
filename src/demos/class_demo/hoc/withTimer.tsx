@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 
+/**
+ * add props "time" for a component
+ * @param Wrapped component to be wrapped
+ */
 const withTimer = (Wrapped: any) => {
   return class extends Component {
     readonly state = {
       time: new Date(),
     };
+    // 叹号: 去除 null, 表示必须存在
     timerId!: NodeJS.Timeout;
 
     componentDidMount() {

@@ -7,7 +7,7 @@ const initTodos: Array<Todo> = [
   { text: "write an app", complete: false },
 ];
 
-const TodoApp: React.FC = () => {
+const TodoAppWithoutCss: React.FC = () => {
   const [todos, setTodos] = useState(initTodos);
 
   // toggle complete or not
@@ -35,5 +35,4 @@ const TodoApp: React.FC = () => {
   );
 };
 
-export default TodoApp;
-
+export default TodoAppWithoutCss;

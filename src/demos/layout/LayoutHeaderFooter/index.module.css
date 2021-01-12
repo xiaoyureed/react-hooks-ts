@@ -1,0 +1,36 @@
+.container {
+  height: 500px;
+  width: 400px;
+  position: relative;
+  background-color: #eee;
+  text-align: center;
+}
+
+.header {
+   /* header 就在最顶部, 无需 绝对定位 */
+  /* position: absolute; */
+
+  /* height: 60px; */
+  /* 可保证文字垂直居中 */
+  line-height: 60px;
+
+  border-bottom: 2px solid #fff;
+}
+
+.middle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 60px;
+  border: 1px solid #fff;
+}
+
+.footer {
+  position: absolute;
+  line-height: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 2px solid #fff;
+}

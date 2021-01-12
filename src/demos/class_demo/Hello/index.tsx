@@ -15,7 +15,7 @@ interface IState {
 
 // generic params <Iprops, state>
 export default class Hello extends React.Component<IProps, IState> {
-  public constructor(props: IProps | Readonly<IProps>) {
+  public constructor(props: IProps) {
     super(props);
     // 方法 1
     this.state = {

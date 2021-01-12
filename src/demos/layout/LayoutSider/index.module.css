@@ -1,0 +1,42 @@
+.container {
+  height: 500px;
+  width: 400px;
+  position: relative;
+  background-color: #eee;
+  text-align: center;
+  padding-left: 200px;
+}
+
+.header {
+  /* header 就在最顶部, 无需 绝对定位 */
+  /* position: absolute; */
+  line-height: 60px;
+  border-bottom: 2px solid #fff;
+}
+
+.sider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  border-right: 2px solid #fff;
+}
+
+.content {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 60px;
+  bottom: 60px;
+  border: 1px solid black;
+}
+
+.footer {
+  position: absolute;
+  line-height: 60px;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  border-top: 2px solid #fff;
+}

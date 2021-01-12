@@ -1,11 +1,36 @@
 import React, { useCallback, useState } from "react";
-import TodoClass from "../class_demo/TodoClass";
+import Clock from "./class_demo/Clock";
+import SnapshotSample from "./class_demo/SnapshotSample";
+import TabSelectorDemo from "./class_demo/TabSelector";
+import TodoClass from "./class_demo/TodoClass";
+import Locale from "./hooks_demo/UseContextDemo/Locale";
+import CommentBoard from "./hooks_demo/CommentBoard";
 import ss from "./Demos.module.css";
-import TodoApp from "./TodoApp";
+import FunctionAsSonComponent from "./FunctionAsSonComponent";
+import LayoutHeaderFooter from "./layout/LayoutHeaderFooter";
+import LayoutResize from "./layout/LayoutResize";
+import LayoutSider from "./layout/LayoutSider";
+import TodoAppWithoutCss from "./hooks_demo/TodoAppWithoutCss";
+import TodoApp from "./hooks_demo/TodoApp";
+import UseContextDemo from "./hooks_demo/UseContextDemo";
+import ArticleList from "./hooks_demo/UseContextDemo/ArticleList";
 
 const routes = [
-  { path: "todo", component: TodoApp },
+  { path: "todo-hooks-perfect", component: TodoApp },
+  { path: "todo-without-css", component: TodoAppWithoutCss },
   { path: "todo-class", component: TodoClass },
+  { path: "tab-selector", component: TabSelectorDemo },
+  { path: "snapshot", component: SnapshotSample },
+  { path: "func-as-son-comp", component: FunctionAsSonComponent },
+  { path: "clock", component: Clock },
+  { path: "locale", component: Locale },
+  { path: "comment-board", component: CommentBoard },
+  { path: "layout-header-footer", component: LayoutHeaderFooter },
+  { path: "layout-sider", component: LayoutSider },
+  { path: "layout-resize", component: LayoutResize },
+  { path: "use-context", component: UseContextDemo },
+  { path: "use-context-locale", component: Locale },
+  { path: "use-context-articles", component: ArticleList },
 ];
 
 const Default: React.FC = () => <>default</>;

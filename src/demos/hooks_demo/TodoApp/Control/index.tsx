@@ -20,7 +20,13 @@ const Control: React.FC<ControlProps> = ({ add }) => {
       text,
       complete: false,
     });
+
+    // error
     // refInput.current?.value = "";
+    // 需要判断一下, 不为空才能置为""
+    if (refInput.current?.value) {
+      refInput.current.value = "";
+    }
   };
   return (
     <>

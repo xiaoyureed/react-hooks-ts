@@ -3,7 +3,6 @@ import React from "react";
 // import { Todo } from "./types";
 import styles from "./Item.module.css";
 
-
 const Item: React.FC<{
   todo: Todo;
   toggle: Toggle;
