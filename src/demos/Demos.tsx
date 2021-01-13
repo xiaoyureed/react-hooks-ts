@@ -14,23 +14,47 @@ import TodoAppWithoutCss from "./hooks_demo/TodoAppWithoutCss";
 import TodoApp from "./hooks_demo/TodoApp";
 import UseContextDemo from "./hooks_demo/UseContextDemo";
 import ArticleList from "./hooks_demo/UseContextDemo/ArticleList";
+import CountLimit from "./hooks_demo/UseEffectDemo/CountLimit";
+import IntervalHook from "./hooks_demo/UseEffectDemo/IntervalHook";
+import AsyncReqDemo from "./hooks_demo/UseEffectDemo/AsyncReqDemo";
+import CountDown from "./hooks_demo/UseEffectDemo/CountDown";
+import UseReducerDemo from "./hooks_demo/UseReducerDemo";
+import UseRefDemo from "./hooks_demo/UseRefDemo";
+import PrevDemo from "./hooks_demo/UseRefDemo/PrevDemo";
+import ThemedButton from "./hooks_demo/UseStateDemo/ThemedButton";
+import CountAddHook from "./hooks_demo/UseStateDemo/CountAddHook";
+import TimeoutPrint from "./hooks_demo/UseRefDemo/why_ref/TimeoutPrint";
+import TimeoutPrintUseRef from "./hooks_demo/UseRefDemo/why_ref/TimeoutPrintUseRef";
 
 const routes = [
   { path: "todo-hooks-perfect", component: TodoApp },
   { path: "todo-without-css", component: TodoAppWithoutCss },
   { path: "todo-class", component: TodoClass },
+  // blow is about class component
   { path: "tab-selector", component: TabSelectorDemo },
   { path: "snapshot", component: SnapshotSample },
   { path: "func-as-son-comp", component: FunctionAsSonComponent },
   { path: "clock", component: Clock },
-  { path: "locale", component: Locale },
+  // blow is about hooks
   { path: "comment-board", component: CommentBoard },
-  { path: "layout-header-footer", component: LayoutHeaderFooter },
-  { path: "layout-sider", component: LayoutSider },
-  { path: "layout-resize", component: LayoutResize },
   { path: "use-context", component: UseContextDemo },
   { path: "use-context-locale", component: Locale },
   { path: "use-context-articles", component: ArticleList },
+  { path: "use-effect-set-interval", component: IntervalHook },
+  { path: "use-effect-count-limit", component: CountLimit },
+  { path: "use-effect-count-down", component: CountDown },
+  { path: "use-effect-async-req", component: AsyncReqDemo },
+  { path: "use-reducer", component: UseReducerDemo },
+  { path: "use-ref", component: UseRefDemo },
+  { path: "use-ref-prev", component: PrevDemo },
+  { path: "why-ref-timeout-print", component: TimeoutPrint },
+  { path: "why-ref-timeout-print-use-ref", component: TimeoutPrintUseRef },
+  { path: "use-state-theme-btn", component: ThemedButton },
+  { path: "use-state-custom-hook", component: CountAddHook },
+  // blow is about layout
+  { path: "layout-header-footer", component: LayoutHeaderFooter },
+  { path: "layout-sider", component: LayoutSider },
+  { path: "layout-resize", component: LayoutResize },
 ];
 
 const Default: React.FC = () => <>default</>;

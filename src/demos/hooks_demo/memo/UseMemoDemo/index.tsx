@@ -9,7 +9,6 @@ const UseMemoDemo: React.FC = () => {
       console.log("memo function");
       return `now: ${Date.now()}`;
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [Math.floor(count / 5)] // 每 增加 5, memo 中的 function 执行一次
   );
   return (

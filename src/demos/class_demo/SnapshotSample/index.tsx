@@ -50,7 +50,7 @@ export default class SnapshotSample extends PureComponent<any, IState> {
     return (
       <div className={ss.container} ref={(n) => (this.rootNode = n)}>
         {this.state.messages.map((msg) => (
-          <div>{msg}</div>
+          <div key={msg}>{msg}</div>
         ))}
       </div>
     );

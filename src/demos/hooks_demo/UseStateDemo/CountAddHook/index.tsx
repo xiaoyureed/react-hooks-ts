@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-// 需要分会元组
+// 若想返回元组
 // 方法 1: 自己定义 元组类型
 // 方法 2: 返回值 转型 as const
+// 也可返回一个对象 (更简单)
 export const useCountAdd: (init: number, step?: number) => [number, () => void] = (
   init: number,
   step = 1
