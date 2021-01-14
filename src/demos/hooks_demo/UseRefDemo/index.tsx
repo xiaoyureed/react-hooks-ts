@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 
+//通过 useRef 创建的对象，其值只有一份，而且在所有 Rerender 之间共享
+// 
 const UseRefDemo: React.FC = () => {
+  // 
   // 需要指定 HTMLInputElement, 才不报错
   const refInput = useRef<HTMLInputElement>(null); // 不传初始值, 后面通过 ref 指定
   return (

@@ -25,8 +25,14 @@ import ThemedButton from "./hooks_demo/UseStateDemo/ThemedButton";
 import CountAddHook from "./hooks_demo/UseStateDemo/CountAddHook";
 import TimeoutPrint from "./hooks_demo/UseRefDemo/why_ref/TimeoutPrint";
 import TimeoutPrintUseRef from "./hooks_demo/UseRefDemo/why_ref/TimeoutPrintUseRef";
+import StepCounterWithContextAndReducer from "./hooks_demo/UseContextDemo/optimize_context_with_reducer/StepCounterWithContextAndReducer";
+import DefaultPropsGood from "./default_props/DefaultPropsGood";
+import MeasureExample from "./hooks_demo/UseRefDemo/callback_ref/MeasureExample";
+import Wrapper from "./layout/responsive_layout/good/HooksAndContext";
+// import Crud from "./hooks_demo/Crud";
 
 const routes = [
+  // {path: "crud-hooks", component: Crud},
   { path: "todo-hooks-perfect", component: TodoApp },
   { path: "todo-without-css", component: TodoAppWithoutCss },
   { path: "todo-class", component: TodoClass },
@@ -40,6 +46,10 @@ const routes = [
   { path: "use-context", component: UseContextDemo },
   { path: "use-context-locale", component: Locale },
   { path: "use-context-articles", component: ArticleList },
+  {
+    path: "use-context-with-useMemo-reducer",
+    component: StepCounterWithContextAndReducer,
+  },
   { path: "use-effect-set-interval", component: IntervalHook },
   { path: "use-effect-count-limit", component: CountLimit },
   { path: "use-effect-count-down", component: CountDown },
@@ -49,12 +59,15 @@ const routes = [
   { path: "use-ref-prev", component: PrevDemo },
   { path: "why-ref-timeout-print", component: TimeoutPrint },
   { path: "why-ref-timeout-print-use-ref", component: TimeoutPrintUseRef },
+  { path: "use-ref-callback", component: MeasureExample },
   { path: "use-state-theme-btn", component: ThemedButton },
   { path: "use-state-custom-hook", component: CountAddHook },
   // blow is about layout
   { path: "layout-header-footer", component: LayoutHeaderFooter },
   { path: "layout-sider", component: LayoutSider },
   { path: "layout-resize", component: LayoutResize },
+  { path: "default-props-good", component: DefaultPropsGood },
+  { path: "responsive-good-context", component: Wrapper },
 ];
 
 const Default: React.FC = () => <>default</>;

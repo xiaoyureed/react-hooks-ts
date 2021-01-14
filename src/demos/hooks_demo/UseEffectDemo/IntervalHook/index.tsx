@@ -3,8 +3,12 @@ import { useCountAdd } from "../../UseStateDemo/CountAddHook";
 
 export const useInterval = (callback: () => void, interval: number) => {
   useEffect(() => {
+    // 每次组件渲染完毕后执行
     let I = setInterval(callback, interval)
+
     return () => {
+      // 第二次渲染开始前执行这里
+      // 即每次组件卸载后执行
       clearInterval(I);
     }
   }, [callback, interval]);

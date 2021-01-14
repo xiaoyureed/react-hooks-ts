@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 const TimeoutPrintUseRef: React.FC = () => {
+  // 使用 ref 代替 state
   const refCount = useRef<number>(0);
   const handleClick = useCallback(() => {
     return () => {

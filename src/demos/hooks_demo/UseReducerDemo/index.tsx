@@ -33,7 +33,11 @@ const reducer = (state: IState, { type, payload }: IAction) => {
   }
 };
 
+/**
+ * 加减按钮
+ */
 const UseReducerDemo: React.FC = () => {
+  // 语法: const [state, dispatch] = useReducer(reducer, initialState);
   const [state, dispatch] = useReducer(reducer, { count: 0 });
   return (
     <>
