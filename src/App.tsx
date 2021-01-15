@@ -4,15 +4,6 @@ import Demos from "./demos/Demos";
 function App() {
   return (
     <>
-      {/* <User01 name="xy" age={11}>
-        <br />
-      </User01> */}
-
-      {/* <TodoApp /> */}
-
-      {/* <DragAndDrop /> */}
-
-      {/* <Crud /> */}
 
       {/* env test */}
       {/* <div>
@@ -22,15 +13,6 @@ function App() {
         </form>
       </div> */}
 
-      {/* <Hello /> */}
-
-      {/* <RouteApp /> */}
-
-      {/* <HooksDemoApp /> */}
-
-      {/* <LazyDemo /> */}
-
-      {/* <TodoApp /> */}
 
       <Demos />
 
