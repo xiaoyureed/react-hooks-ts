@@ -88,11 +88,13 @@ class TabSelectorDemo extends React.PureComponent {
           renderChild={(animal) => {
             console.log(animal);
             return (
-              // resources 文件夹只能在根目录下, 不能在 src 下
+              // 若放在 public 下, 则需要使用 process.env.PUBLIC_URL + '/image.png'
+              // 这里通过 require 导入图片需要 最后 .default
+              // 若不添加 .default那么需要配置上设置 url-loader 的 option.esModule = false 即可
               <img
                 alt=""
                 width="100px"
-                src={require(`../../../../resources/${animal}.png`)}
+                src={require(`./${animal}.png`).default}
               />
             );
           }}

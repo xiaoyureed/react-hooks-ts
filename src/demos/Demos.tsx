@@ -28,19 +28,24 @@ import TimeoutPrintUseRef from "./hooks_demo/UseRefDemo/why_ref/TimeoutPrintUseR
 import StepCounterWithContextAndReducer from "./hooks_demo/UseContextDemo/optimize_context_with_reducer/StepCounterWithContextAndReducer";
 import DefaultPropsGood from "./default_props/DefaultPropsGood";
 import MeasureExample from "./hooks_demo/UseRefDemo/callback_ref/MeasureExample";
-import Wrapper from "./layout/responsive_layout/good/HooksAndContext";
+import Wrapper, {
+  useViewport,
+} from "./layout/responsive_layout/good/HooksAndContext";
+import PostManagement from "./hooks_demo/pagination/PostManagement";
+import Profile from "./layout/Profile";
 // import Crud from "./hooks_demo/Crud";
 
 const routes = [
   // {path: "crud-hooks", component: Crud},
   { path: "todo-hooks-perfect", component: TodoApp },
   { path: "todo-without-css", component: TodoAppWithoutCss },
-  { path: "todo-class", component: TodoClass },
+  { path: "post-management", component: PostManagement },
   // blow is about class component
   { path: "tab-selector", component: TabSelectorDemo },
   { path: "snapshot", component: SnapshotSample },
   { path: "func-as-son-comp", component: FunctionAsSonComponent },
   { path: "clock", component: Clock },
+  { path: "todo-class", component: TodoClass },
   // blow is about hooks
   { path: "comment-board", component: CommentBoard },
   { path: "use-context", component: UseContextDemo },
@@ -68,19 +73,33 @@ const routes = [
   { path: "layout-resize", component: LayoutResize },
   { path: "default-props-good", component: DefaultPropsGood },
   { path: "responsive-good-context", component: Wrapper },
+  { path: "layout-profile", component: Profile },
   // antd
 ];
 
-const Default: React.FC = () => <>default</>;
+const Default: React.FC = () => <div>default</div>;
 
 const Demos: React.FC = () => {
+  // 用于强制re render
   const [, setRender] = useState({});
   const forceRender = useCallback(() => {
     setRender({});
   }, []);
 
+  const getCurHash = useCallback(() => {
+    // #/post-management
+    const locationHash = document.location.hash;
+    // post-management
+    const curHash = locationHash.replace("#/", "");
+    return curHash;
+  }, []);
+
+  // 处理点击: 往 history 中添加新的状态
   const handleClick = useCallback(
     (path) => {
+      if (path === getCurHash()) {
+        return;
+      }
       //pushState() 想浏览器添加一个状态, 可以 change path (not url) but no need to refresh page
       // param1: obj类型, 可以为 null (当用户定向到一个新的状态时，会触发popstate事件, 可以拿得到这里的 obj)
       // param2: string, 可以为 null (没啥用)
@@ -91,28 +110,26 @@ const Demos: React.FC = () => {
       window.history.pushState(null, "", `/#/${path}`);
       forceRender();
     },
-    [forceRender]
+    [forceRender, getCurHash]
   );
 
-  const getCurHash = useCallback(() => {
-    const locationHash = document.location.hash;
-    console.log(`locationhash = ${locationHash}`);
-    const curHash = locationHash.replace("#/", "");
-    console.log(`cur hash = ${curHash}`);
-    return curHash;
-  }, []);
-
-  const findCur = useCallback(() => {
+  // 解析对应的组件
+  const resolveCur = useCallback(() => {
     const curRou = routes.filter((rou) => rou.path === getCurHash())[0];
     if (curRou) {
       return <curRou.component />;
     }
     return <Default />;
-  }, []);
+  }, [getCurHash]);
+
+  const { width } = useViewport();
+  const threshold = 760;
 
   return (
     <>
-      <ul className={ss.menuList}>
+      <ul
+        className={`${ss.menuList} ${width < threshold && ss.mobileModeMenu}`}
+      >
         {routes.map((rou) => (
           <li
             className={`${ss.menuItem} ${
@@ -131,7 +148,13 @@ const Demos: React.FC = () => {
           </li>
         ))}
       </ul>
-      <div className={ss.component}>{findCur()}</div>
+      <div
+        className={`${ss.component} ${
+          width < threshold && ss.mobileModeComponent
+        }`}
+      >
+        {resolveCur()}
+      </div>
     </>
   );
 };

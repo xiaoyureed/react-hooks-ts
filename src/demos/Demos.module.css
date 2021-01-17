@@ -35,3 +35,11 @@
   height: 100%;
   position: absolute;
 }
+
+.mobileModeMenu {
+  display: none;
+}
+
+.mobileModeComponent {
+  margin-left: 0;
+}

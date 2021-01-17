@@ -1,0 +1,132 @@
+/* 从 hero class 中拆出来, 可重用 */
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  /* 水平居中 */
+  justify-content: center;
+  /* 垂直居中 */
+  align-items: center;
+}
+
+/* css module 中 id 选择器无效, 也无需使用*/
+.hero {
+  justify-content: flex-start;
+  padding: 0 50px;
+  margin: 0 auto;
+  /* 当宽度变为很大时, 左边距不会还是 50px */
+  max-width: 1200px;
+
+  /* 使用绝对路径亦可, 从 public 中找 */
+  /* 若在 js 中 通过内联 style 设置: `url(${process.env.PUBLIC_URL + '/image.png'})`  */
+  background-image: url("./cow.png");
+  /* 放大图片知道 cover 整个容器 */
+  background-size: cover;
+  /* 背景起始位置 */
+  background-position: top center;
+  position: relative;
+  z-index: 1;
+}
+
+/* 伪元素 */
+/* 添加蒙版效果 (overlay) */
+.hero::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.6;
+  content: "";
+  /* 放在最底层, 不要遮挡点击 */
+  z-index: -1;
+  /* 或者 屏蔽点击事件 */
+  /* pointer-events: none; */
+}
+
+.head {
+  font-size: 4rem;
+  /* 把内容包裹起来, 防止文字太长溢出 */
+  width: fit-content;
+
+  /* 保证内部的 span 可以设置宽高 */
+  display: block;
+  /* 保证 内部的 span 定位 absolute 有效 */
+  position: relative;
+
+  /* forward 表示保持 动画进行到100%时的样式 */
+  animation: text_reveal 1s ease forwards;
+  animation-delay: 1.5s;
+  color: transparent;
+}
+
+/* 伪类 */
+.head:nth-child(3) {
+  animation: text_reveal_third 0.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: crimson;
+  height: 100%;
+  width: 0;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: text_reveal_box 1s ease;
+  animation-delay: 1s;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid crimson;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  margin-top: 3rem;
+  /* 动画针对所有属性 */
+  /* transition: all 0.3s ease-out; */
+  /* 仅仅针对背景 */
+  /* transition: 0.3s ease-out background-color; */
+  /* or 指定多个属性 */
+  transition: 0.3s ease;
+  transition-property: color, background-color;
+}
+
+.btn:hover {
+  color: white;
+  background-color: crimson;
+}
+
+/* keyframes */
+@keyframes text_reveal_box {
+  /* 0％是开头动画，100％是当动画完成 */
+  /* 此外也可以使用 from, to 但是兼容性不好 */
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes text_reveal {
+  100% {
+    color: white;
+  }
+}
+
+@keyframes text_reveal_third {
+  100% {
+    color: crimson;
+    font-weight: 500;
+  }
+}
+/* end keyframes */

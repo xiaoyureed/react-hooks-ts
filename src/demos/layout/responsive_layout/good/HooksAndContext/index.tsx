@@ -8,7 +8,7 @@ interface IViewportContext {
 
 const ViewportContext = createContext<IViewportContext>({} as IViewportContext);
 
-const ViewportContextProvider: React.FC = ({ children }) => {
+export const ViewportContextProvider: React.FC = ({ children }) => {
   const [height, setHeight] = useState(window.innerHeight);
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -28,20 +28,22 @@ const ViewportContextProvider: React.FC = ({ children }) => {
   );
 };
 
-const useViewport = () => {
+export const useViewport = () => {
   const { height, width } = useContext(ViewportContext);
   return { width, height };
 };
 
-const HooksAndContext: React.FC = () => {
+const HooksAndContext: React.FC<{ widthThreshold: number }> = ({
+  widthThreshold,
+}) => {
   const { width } = useViewport();
-  const threshold = 700;
-  return width < threshold ? <MobileLayout /> : <DesktopLayout />;
+  // const threshold = 700;
+  return width < widthThreshold ? <MobileLayout /> : <DesktopLayout />;
 };
 
 const Wrapper = () => (
   <ViewportContextProvider>
-    <HooksAndContext />
+    <HooksAndContext widthThreshold={700} />
   </ViewportContextProvider>
 );
 

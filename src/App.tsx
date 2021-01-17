@@ -1,10 +1,10 @@
 import React from "react";
 import Demos from "./demos/Demos";
+import { ViewportContextProvider } from "./demos/layout/responsive_layout/good/HooksAndContext";
 
 function App() {
   return (
     <>
-
       {/* env test */}
       {/* <div>
         <small>current mode: {process.env.NODE_ENV} </small>
@@ -13,9 +13,9 @@ function App() {
         </form>
       </div> */}
 
-
-      <Demos />
-
+      <ViewportContextProvider>
+        <Demos />
+      </ViewportContextProvider>
     </>
   );
 }
