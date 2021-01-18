@@ -9,13 +9,85 @@
   align-items: center;
 }
 
+/* header section */
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  /* 使用 height 则无效, 不能移动到顶部 */
+  min-height: 8vh;
+  z-index: 1000;
+  background-color: rgba(202, 32, 32, 0.24);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  /* 两端对齐 */
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  padding: 0 10px;
+}
+
+.navUl {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.navItemLink {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: white;
+  text-transform: uppercase;
+  display: block;
+  /* 只有 display:block 后 padding 才有效 */
+  padding: 20px;
+}
+
+/* 菜单背景 */
+.navItemLink::after {
+  /* 显示元素的自定义属性 */
+  content: attr(data-after);
+  color: rgb(228, 220, 220, 0.25);
+  font-size: 15rem;
+  letter-spacing: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* z-index: -1; */
+
+  /* translate(-50%, -50%) 表示修正坐标, scale(0) 表示消失 */
+  transform: translate(-50%, -50%) scale(0);
+}
+/* 鼠标滑过时才显示背景 */
+/* 不能使用 navItemLink, 必须用 navLi:hover */
+.navLi:hover .navItemLink::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+/* header section end */
+
+
 /* css module 中 id 选择器无效, 也无需使用*/
 .hero {
   justify-content: flex-start;
-  padding: 0 50px;
+  padding: 0 100px;
   margin: 0 auto;
-  /* 当宽度变为很大时, 左边距不会还是 50px */
-  max-width: 1200px;
+  /* 当宽度变为很大时, 左边距不会还是 100px */
+  /* max-width: 1200px; */
 
   /* 使用绝对路径亦可, 从 public 中找 */
   /* 若在 js 中 通过内联 style 设置: `url(${process.env.PUBLIC_URL + '/image.png'})`  */
@@ -102,6 +174,195 @@
   color: white;
   background-color: crimson;
 }
+
+/* service section */
+.service {
+  flex-direction: column;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .05rem;
+}
+
+.serviceTopDesc {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: 300;
+  letter-spacing: .05rem;
+}
+
+.serviceBottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 换行显示 */
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.serviceItem {
+  /* 自己作为 flex item 的宽度 */
+  /* 这样, 即使在宽屏下, parent 没有设置纵向分布但是设置了换行显示, 最终效果还是会是纵向分布 */
+  flex-basis: 80%;
+
+  display: flex;
+  flex-direction: column;
+  /* column 下, 交叉轴变为水平方向, 这里表示左对齐 */
+  align-items: flex-start;
+  /* 主轴居中对齐 */
+  justify-content: center;
+  padding: 30px;
+  border-radius: 10px;
+  background-image: url(./cow.png);
+  background-size: cover;
+  margin: 10px 5%;
+  text-align:start;
+  position: relative;
+  z-index: 1;
+  color: white;
+  overflow: hidden;
+}
+
+.serviceItem::after {
+  /* 必须要这个 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .5;
+  z-index: -1;
+  /* 不够好, 在主元素使用 overflow */
+  /* border-radius: 10px; */
+}
+
+/* 必须将内部 图片设置为宽高 100%, 在这里调整 parent 宽高才会影响到图片 */
+.icon {
+  height: 50px;
+  width: 50px;
+  margin-bottom: 20px;
+}
+.img {
+  height: 100%;
+  width: 100%;
+  /* 图片宽高比例不变, 可能会裁剪 */
+  object-fit: cover;
+}
+/* end service section */
+
+/* proj section */
+.proj {
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.projList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px auto;
+  max-width: 80%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.projInfo {
+  padding: 30px;
+  flex-basis: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #242424;
+  color: white;
+}
+.projImgWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.projImg {
+  width: 100%;
+  height: 100%;
+}
+
+.projImgWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .7;
+}
+
+/* 这是整个 item 放大 */
+/* .projItem:hover {
+  transform: scale(1.1);
+} */
+/* projImg:hover 不行,  */
+.projImgWrapper:hover {
+  /* 缩放 */
+  transform: scale(1.2);
+  /* 控制动画过程:速度放慢 */
+  transition: transform 0.3s ease;
+
+}
+/* end proj section */
+
+/* contact section */
+.contact {
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contactItems {
+  width: 400px;
+}
+
+.contactItem {
+  width: 80%;
+  padding: 30px;
+  margin: 30px;
+  text-align: center;
+  box-shadow: 0 0 18px 0 #c2bebe;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.contactItem:hover {
+  box-shadow: 0 0 5px 0 #c2bebe;
+}
+/* contact section end */
 
 /* keyframes */
 @keyframes text_reveal_box {
