@@ -1,0 +1,94 @@
+.container {
+  height: 80px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin-left: 2rem;
+  cursor: pointer;
+  display: flex;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.titleIcon {
+  margin-left: 1rem;
+}
+
+.menuIcon {
+  display: none;
+}
+
+.items {
+  display:grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1rem;
+  list-style: none;
+  text-align: center;
+  /* 水平分布末尾对齐 */
+  justify-content:end;
+  align-items: center;
+  /* vw 相对 百分比来说更好 */
+  width: 70vw;
+  margin-right: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: black;
+}
+
+.link:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+/* mobile layout */
+@media screen and (max-width:960px) {
+  .container {
+    position: relative;
+  }
+
+  .items {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    /* height: 500px; */
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: #242424;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .menuIcon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .itemsActive {
+    background-color: #242424;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+  }
+
+  .link {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display:table;
+    color: #fff;
+  }
+}

@@ -33,6 +33,8 @@ import Wrapper, {
 } from "./layout/responsive_layout/good/HooksAndContext";
 import PostManagement from "./hooks_demo/pagination/PostManagement";
 import Profile from "./layout/Profile";
+import Navbar from "./layout/Navbar";
+import QuizGame from "./hooks_demo/QuizGame";
 // import Crud from "./hooks_demo/Crud";
 
 const routes = [
@@ -40,6 +42,7 @@ const routes = [
   { path: "todo-hooks-perfect", component: TodoApp },
   { path: "todo-without-css", component: TodoAppWithoutCss },
   { path: "post-management", component: PostManagement },
+  {path: "quiz-game", component: QuizGame},
   // blow is about class component
   { path: "tab-selector", component: TabSelectorDemo },
   { path: "snapshot", component: SnapshotSample },
@@ -74,6 +77,7 @@ const routes = [
   { path: "default-props-good", component: DefaultPropsGood },
   { path: "responsive-good-context", component: Wrapper },
   { path: "layout-profile", component: Profile },
+  {path: "layout-navbar", component: Navbar },
   // antd
 ];
 
