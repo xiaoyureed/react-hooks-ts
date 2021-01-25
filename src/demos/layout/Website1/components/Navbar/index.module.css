@@ -1,0 +1,70 @@
+:root {
+  --bgColor: #242424;
+  --color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  height: 80px;
+  width: 100%;
+  background-color: var(--bgColor);
+  padding: 0 20px;
+  position: relative;
+}
+
+.logo {
+  font-size: 3rem;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  color: var(--color);
+}
+
+.menuIcon {
+  color: var(--color)
+}
+
+.menuItems {
+  display: flex;
+  width: 70%;
+  list-style: none;
+  justify-content:flex-end;
+  align-items: center;
+  /* 不要使用 margin, 否则会影响 absolute 定位的 left 属性, 造成弹出菜单会错位 */
+  padding: 0 20px;
+}
+
+.menuItem {
+  padding: 8px 20px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.menuItem:hover {
+  border: 1px solid var(--color);
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+
+.menuLink {
+  color: var(--color)
+}
+
+.menuItemsMobile {
+  position: absolute;
+  top: 80px;
+  left: -100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bgColor);
+  transition: all 0.5s ease;
+}
+
+.menuItemsMobileActive {
+  left: 0;
+  transition: all 0.5s ease;
+}
