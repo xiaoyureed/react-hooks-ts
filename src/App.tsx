@@ -1,6 +1,7 @@
-import React from "react";
-import Demos from "./demos/Demos";
-import { ViewportContextProvider } from "./demos/layout/responsive_layout/good/HooksAndContext";
+import React from 'react'
+import { Router } from 'react-router-dom'
+import Demos from './demos/Demos'
+import { ViewportContextProvider } from './demos/layout/responsive_layout/good/HooksAndContext'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Demos />
       </ViewportContextProvider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -15,3 +15,7 @@
 
 
 // declare module "./xxx/xxx.css" {} 扩展模块，可用于在一个文件中声明多个模块的类型
+declare module "*.mp4" {
+  const src: string;
+  export default src;
+}

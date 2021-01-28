@@ -24,7 +24,7 @@ const Navbar: React.FC<{
     <>
       <nav className={ss.container}>
         <h1>
-          <Link to="/" className={ss.logo}>
+          <Link to="/" onClick={() => setMenuIconClicked(false)} className={ss.logo}>
             Travel <FaTypo3 />
           </Link>
         </h1>
@@ -52,9 +52,11 @@ const Navbar: React.FC<{
               </Link>
             </li>
           ))}
-          <Button buttonStyle="btnOutline" buttonSize="btnPrimary">
-            Sign up
-          </Button>
+          <li className={ss.menuItem}>
+            <Button buttonStyle="btnOutline" buttonSize="btnPrimary">
+              Sign up
+            </Button>
+          </li>
         </ul>
       </nav>
     </>

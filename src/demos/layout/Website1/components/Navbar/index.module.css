@@ -1,6 +1,6 @@
 :root {
-  --bgColor: #242424;
-  --color: #fff;
+  --blackGraceful: #242424;
+  --whiteGraceful: #f3f3f3;
 }
 
 .container {
@@ -10,7 +10,7 @@
   font-size: 1.5rem;
   height: 80px;
   width: 100%;
-  background-color: var(--bgColor);
+  background-color: var(--blackGraceful);
   padding: 0 20px;
   position: relative;
 }
@@ -20,11 +20,11 @@
   display: flex;
   justify-content:center;
   align-items: center;
-  color: var(--color);
+  color: var(--whiteGraceful);
 }
 
 .menuIcon {
-  color: var(--color)
+  color: var(--whiteGraceful)
 }
 
 .menuItems {
@@ -34,7 +34,7 @@
   justify-content:flex-end;
   align-items: center;
   /* 不要使用 margin, 否则会影响 absolute 定位的 left 属性, 造成弹出菜单会错位 */
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .menuItem {
@@ -44,13 +44,13 @@
 }
 
 .menuItem:hover {
-  border: 1px solid var(--color);
+  border: 1px solid var(--whiteGraceful);
   border-radius: 4px;
   transition: all 0.5s ease;
 }
 
 .menuLink {
-  color: var(--color)
+  color: var(--whiteGraceful)
 }
 
 .menuItemsMobile {
@@ -60,11 +60,11 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--bgColor);
+  background-color: var(--blackGraceful);
   transition: all 0.5s ease;
 }
 
 .menuItemsMobileActive {
-  left: 0;
+  left: 0;  
   transition: all 0.5s ease;
 }

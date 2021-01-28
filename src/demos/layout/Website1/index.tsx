@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 
 const MENU_ITEMS = [
@@ -22,7 +23,7 @@ const Website1: React.FC = () => {
     <Router>
       <Navbar menuItems={MENU_ITEMS} />
       <Switch>
-        <Route path="/" exact />
+        <Route path="/" exact component={HeroSection} />
       </Switch>
     </Router>
   );
