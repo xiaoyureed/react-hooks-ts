@@ -2,6 +2,7 @@ import React from "react";
 import ss from "./index.module.css";
 
 const Profile: React.FC = () => {
+  
   return (
     <>
       {/* navbar section */}

@@ -23,16 +23,21 @@ const menuItems = [
 ];
 
 const NavBar: React.FC = () => {
+  // menu button is clicked or not.
   const [clicked, setClicked] = useState(false);
   return (
+    // 通过 字符串获取 css module 中的样式
     <nav className={ss[`container`]}>
+      {/* title */}
       <h1 className={ss.title}>
         React
         <FaReact className={ss.titleIcon} />
       </h1>
+      {/* menu button , only display in mobile mode */}
       <div className={ss.menuIcon} onClick={() => setClicked((prev) => !prev)}>
         {clicked ? <FaTimes /> : <FaBars />}
       </div>
+      {/* menu items */}
       <ul className={`${ss.items} ${clicked && ss.itemsActive}`}>
         {menuItems.map((it) => (
           <li key={it.title}>

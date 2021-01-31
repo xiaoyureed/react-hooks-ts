@@ -14,7 +14,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
+  /* width: 100vw; */
   /* 使用 height 则无效, 不能移动到顶部 */
   min-height: 8vh;
   z-index: 1000;
