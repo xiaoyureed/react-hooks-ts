@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaPaperclip, FaPlay } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import ss from './index.module.scss'
 
@@ -14,7 +15,9 @@ const Works = ({ works }: { works: Array<IWork> }) => {
     <div className={ss.works}>
       {works.map((w) => (
         <div className={ss.work} key={w.id}>
-          <img src={w.cover} alt="img" />
+          <div className={ss.projImgWrapper}>
+            <FaPaperclip className={ss.projImg} />
+          </div>
           <div className={ss.brief}>
             <h3>
               <Link to={`/works/${w.id}`}>{w.title}</Link>
